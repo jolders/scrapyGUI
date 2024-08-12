@@ -1,0 +1,307 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui version="4.0">
+ <class>MainWindow</class>
+ <widget class="QMainWindow" name="MainWindow">
+  <property name="geometry">
+   <rect>
+    <x>0</x>
+    <y>0</y>
+    <width>1026</width>
+    <height>682</height>
+   </rect>
+  </property>
+  <property name="windowTitle">
+   <string>Scrapy Project</string>
+  </property>
+  <property name="styleSheet">
+   <string notr="true">/* Setting a style */
+QWidget {
+        background-color: &quot;powderblue&quot;;
+}
+/* --------------------------------------- expand pane in qtabwidget --------------------------------------- */
+QTabWidget::pane {
+    border: 0 solid black;
+    margin: -9px -8px -8px -9px;
+}
+QTabBar::tab {
+    background: &quot;peachpuff&quot;; 
+    border: 2px solid lightgray; 
+    padding: 10px 20px 10px 20px;
+}
+ QTabBar::tab:selected {
+    background: &quot;lightgreen&quot;;
+    border: 2px solid gray;
+    padding: 10px 20px 10px 20px;
+    margin-bottom: -2px; 
+ }
+/* --------------------------------------- Style the BUTTONS --------------------------------------- */
+QPushButton {
+    color: &quot;black&quot;; /* Button Text */
+    padding: 10px;
+    border-radius: 5px;
+    border-width: 1px;
+    border-color: &quot;lightslategrey&quot;;
+    border-style: solid;
+}
+QPushButton#btn_scrape {
+    background-color: &quot;lightgreen&quot;;
+    padding: 10px 30px 10px 30px;
+    border-color: &quot;olivedrap&quot;;
+}
+QPushButton::hover#btn_scrape {
+    color: &quot;white&quot;; /* Button Text */
+    background-color: &quot;forestgreen&quot;;
+    font-weight:bold;
+}
+QPushButton#btn_delete {
+    background-color: &quot;khaki&quot;;
+    padding: 10px 20px 10px 20px;
+    border-color: &quot;darkgoldenrod&quot;;
+}
+QPushButton::hover#btn_delete {
+    color: &quot;white&quot;; /* Button Text */
+    background-color: &quot;darkgoldenrod&quot;;
+    font-weight:bold;
+}
+QPushButton#btn_exit {
+    color: &quot;black&quot;; /* Button Text */
+    background-color: &quot;orange&quot;;
+    padding: 8px;
+    border-radius: 5px;
+    border-width: 1px;
+    border-color: &quot;red&quot;;
+    border-style: solid;
+    width:100px;
+    height:10px;
+}
+QPushButton::hover#btn_exit {
+    color: &quot;white&quot;; /* Button Text */
+    background-color: &quot;red&quot;;
+    border-color: &quot;orange&quot;;
+    border-width: 0px;
+    font-weight:bold;
+}
+/* --------------------------------------- Style the QGroupbox --------------------------------------- */
+QGroupBox {
+    font: bold;
+    border: 1px solid silver;
+    border-radius: 4px;
+    margin-top: 8px;
+background-color: &quot;lightgreen&quot;;
+}
+QGroupBox::title {
+    subcontrol-origin: margin;
+    left: 7px;
+    padding: 0px 5px 0px 5px;
+}
+/*  ---------------------------------------  Setting a style for QTableView  ---------------------------------------  */
+
+QTableView { gridline-color: &quot;orange&quot;;
+        background-color: &quot;khaki&quot;;
+        border-color: rgb(242, 128, 133);
+        padding: 1px;
+        }
+QHeaderView {
+    background-color: &quot;yellow&quot;;
+    }
+QHeaderView::section {
+    padding-bottom: 5px;
+    padding-top: 5px;
+    background-color: rgb(71, 153, 176);
+    color: white;
+    height: 25px;
+    /* width: 150px; */
+    font: 14px;
+}
+QTableView::item:selected {
+    /* row selected */
+    background-color: &quot;gold&quot;;
+    color: &quot;black&quot;; 
+}
+QTableView::item {
+    /* row selected */
+    padding: 5px;
+}
+QTableView::item:selected {
+    background-color: rgb(242, 128, 133);
+}
+
+/*  ---------------------------------------  Setting a style for QCombobox  ---------------------------------------  #aaff7f */
+QComboBox { 
+subcontrol-origin: padding;
+    subcontrol-position: top right;
+    selection-background-color: #111;
+    selection-color: yellow;
+    color: &quot;black&quot;;
+    background-color: QLinearGradient( x1: 0, y1: 0, x2: 0, y2: 1, stop: 0 #565656, stop: 0.1 #aaff7f, stop: 0.5 #aaff7f, stop: 0.9 #aaff7f, stop: 1 #aaff7f);
+    border-style: solid;
+    border: 1px solid #1e1e1e;
+    border-radius: 2;
+    padding: 1px 0px 1px 20px;
+}
+QComboBox QAbstractItemView {
+    border: 2px solid darkgray;
+selection-background-color: lightgray;
+}
+QListView {
+    background-color: &quot;lightgreen&quot;;
+}
+QSpinBox {
+    color: white;
+    selection-background-color: &quot;lightgreen&quot;;
+    background: #aaff7f;
+    border: 1px solid &quot;olivedrap&quot;;
+    border-radius: 2px;
+padding: 1px 10px 1px 10px;
+color: &quot;black&quot;;
+selection-background-color: &quot;lightgreen&quot;;
+selection-color: &quot;black&quot;;
+font: bold;
+}
+QStatusBar {
+    background: &quot;skyblue&quot;;
+    border-top: 2px solid &quot;gray&quot;;
+}
+/* --------------------------------------- Status Bar  -----------------------------------*/
+QSizeGrip {
+    image: url(icon/size_grip.svg);
+    width: 20px;
+    height: 20px;
+    background-color: &quot;skyblue&quot;;
+}
+QStatusBar, QStatusBar QLabel {
+        color: &quot;black&quot;;
+}</string>
+  </property>
+  <widget class="QWidget" name="centralwidget">
+   <layout class="QVBoxLayout" name="verticalLayout">
+    <item>
+     <widget class="QGroupBox" name="groupBox">
+      <property name="title">
+       <string>Webpage selection</string>
+      </property>
+      <layout class="QHBoxLayout" name="horizontalLayout_2" stretch="1,0,0">
+       <item>
+        <widget class="QComboBox" name="comboBox">
+         <property name="minimumSize">
+          <size>
+           <width>0</width>
+           <height>30</height>
+          </size>
+         </property>
+        </widget>
+       </item>
+       <item>
+        <widget class="QSpinBox" name="spinBox">
+         <property name="minimumSize">
+          <size>
+           <width>50</width>
+           <height>30</height>
+          </size>
+         </property>
+         <property name="minimum">
+          <number>1</number>
+         </property>
+         <property name="maximum">
+          <number>50</number>
+         </property>
+        </widget>
+       </item>
+       <item>
+        <widget class="QPushButton" name="btn_scrape">
+         <property name="text">
+          <string>Scrape</string>
+         </property>
+        </widget>
+       </item>
+      </layout>
+     </widget>
+    </item>
+    <item>
+     <widget class="QTabWidget" name="tabs">
+      <property name="styleSheet">
+       <string notr="true"/>
+      </property>
+      <property name="currentIndex">
+       <number>0</number>
+      </property>
+      <widget class="QWidget" name="tab_table">
+       <attribute name="title">
+        <string>Table</string>
+       </attribute>
+       <layout class="QGridLayout" name="gridLayout">
+        <item row="0" column="0">
+         <widget class="QTableView" name="tableView">
+          <property name="sizePolicy">
+           <sizepolicy hsizetype="Expanding" vsizetype="Expanding">
+            <horstretch>46</horstretch>
+            <verstretch>0</verstretch>
+           </sizepolicy>
+          </property>
+          <property name="editTriggers">
+           <set>QAbstractItemView::EditTrigger::NoEditTriggers</set>
+          </property>
+         </widget>
+        </item>
+       </layout>
+      </widget>
+      <widget class="QWidget" name="tab_output">
+       <attribute name="title">
+        <string>Output</string>
+       </attribute>
+       <layout class="QHBoxLayout" name="horizontalLayout_3">
+        <item>
+         <widget class="QTextEdit" name="textEdit"/>
+        </item>
+       </layout>
+      </widget>
+     </widget>
+    </item>
+    <item>
+     <layout class="QHBoxLayout" name="horizontalLayout">
+      <item>
+       <widget class="QPushButton" name="btn_delete">
+        <property name="text">
+         <string>Delete Selected</string>
+        </property>
+       </widget>
+      </item>
+      <item>
+       <spacer name="horizontalSpacer">
+        <property name="orientation">
+         <enum>Qt::Orientation::Horizontal</enum>
+        </property>
+        <property name="sizeHint" stdset="0">
+         <size>
+          <width>40</width>
+          <height>20</height>
+         </size>
+        </property>
+       </spacer>
+      </item>
+      <item>
+       <widget class="QPushButton" name="btn_exit">
+        <property name="text">
+         <string>Exit</string>
+        </property>
+       </widget>
+      </item>
+     </layout>
+    </item>
+   </layout>
+  </widget>
+  <widget class="QMenuBar" name="menubar">
+   <property name="geometry">
+    <rect>
+     <x>0</x>
+     <y>0</y>
+     <width>1026</width>
+     <height>18</height>
+    </rect>
+   </property>
+  </widget>
+  <widget class="QStatusBar" name="statusbar"/>
+ </widget>
+ <resources/>
+ <connections/>
+</ui>

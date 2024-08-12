@@ -1,0 +1,7 @@
+/* --------------------------------------- Status Bar  -----------------------------------*/
+QSizeGrip {
+    image: url(:/pyQt_Scrapy26/size_grip.svg);
+    width: 20px;
+    height: 20px;
+    background-color: "skyblue";
+}
